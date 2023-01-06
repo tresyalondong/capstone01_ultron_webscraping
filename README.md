@@ -1,6 +1,12 @@
 # Web-Scrapping using Beautifulsoup
 
-Projek ini dikembangkan sebagai salah satu capstone project dari Algoritma Academy Data Analytics Specialization. Deliverables yang diharapkan dari projek ini adalah melakukan simple webscrapping untuk mendapatkan informasi. Untuk step by step guide, Bapak Ibu dipersilahkan untuk membuka git saya [Click here](https://github.com/t3981-h/Webscrapping-with-BeautifulSoup "Webscrapping with Beautiful Soup"). Kita juga akan memanfaatkan flask dashboard sederhana untuk menampilkan hasil scrap dan visualisasi kita.
+Projek ini dikembangkan sebagai salah satu capstone project dari Algoritma Academy Data Analytics Specialization. Deliverables yang diharapkan dari projek ini adalah melakukan simple webscrapping untuk mendapatkan informasi. Kita juga akan memanfaatkan flask dashboard sederhana untuk menampilkan hasil scrap dan visualisasi kita.
+
+## Objectives
+Secara singkat, tujuan dari project ini adalah melakukan web-scraping berdasarkan data film yang rilis di tahun 2021 dari `https://www.imdb.com/search/title/?release_date=2021-01-01,2021-12-31`
+
+- Dari laman web tersebut kita tarik data berupa `judul film` , `imdb rating` , `metascore`, dan `votes`
+- Selanjutnya kita buat plot dari 7 film paling populer di tahun 2021.
 
 ## Dependencies
 
@@ -8,12 +14,6 @@ Projek ini dikembangkan sebagai salah satu capstone project dari Algoritma Acade
 - pandas
 - flask
 - matplotlib
-
-Atau Bapak Ibu cukup menginstall requirements.txt dengan cara berikut
-
-```python
-pip install -r requirements.txt
-```
 
 ## Rubics
 
@@ -23,53 +23,37 @@ pip install -r requirements.txt
 - Creating a tidy python notebook as a report. (2 points)
 - Implement it on flask dashboard (2 points)
 
+## Environment Preparation
+Cukup dengan menginstall requirements.txt dengan cara berikut
 
-## What You Need to Do
+```python
+pip install -r requirements.txt
+```
 
-* Silahkan mencoba melakukan scraping soal di bawah menggunakan `beautiful soup` di notebook Bapak/Ibu terlebih dahulu.
-* Bapak/Ibu dapat men-clone repo ini.
-* Silahkan buka notebook template pada capstone ini dan isi sesuai dengan arahan yang ada. Pastikan Bapak/Ibu memberikan analisa yang dibutuhkan pada notebook tersebut.
-* File di repo ini adalah skeleton yang dapat digunakan untuk membuat flask dashboard sederhana.
-* Silahkan isi di bagian yang masih kosong.
-* Isi fungsi `scrap` dengan proses scraping yang sudah Bapak/Ibu lakukan di notebook. 
+## Data Scraping with `BeautifulSoup`
 
+Menemukan kunci utama untuk melakukan data scraping dgn fungsi sederhana berikut: 
 ```python
 table = soup.find(___)
-tr = table.find_all(___)
+movie_list = table.find_all(___)
 ```
 
-* Isi bagian ini untuk menyimpan hasil scrap yang Bapak/Ibu buat menjadi sebuah dataframe.
+Hasil dari data scraping kemudian disimpan dalam dataframe `df`
 
 ```python
-df = pd.DataFrame(name of your tupple, columns = (name of the columns))
+df = pd.DataFrame({'movie_title':title,
+                    'movie_ratings':ratings,
+                    'metascore':meta,
+                    'votes':votes_imdb    
+                    })
 ```
 
-* Terakhir Bapak/Ibu dapat menggunakan fungsi `scrap` dengan cara mengisi bagian berikut dengan link web yang Bapak/Ibu scrap.
+untuk selanjutnya kita rapikan dan persiapkan sesuai dengan kebutuhan.
 
-```python
-df = scrap(___) #insert url here
-```
+## Reporting
+Melakukan analisa sederhana berdasarkan hasil data scrapping & visualisasi, guna menemukan **Top 7 Most Popular Movies 2021**.
 
-* Bapak/Ibu juga dapat bermain dengan UI nya pada `index.html` yang dimana Bapak/Ibu dapat mengikuti comment yang ada untuk mengetahui bagian mana yang dapat diubah. 
+## Visualisation using Flask 
+Implementasi code ke dalam file `app.py` dan menampilkannya dalam dashboard flask
 
-### The Final Mission
-
-Pada captsone kali ini, Bapak Ibu bisa memilih salah satu soal ini untuk dikerjakan.
-
-1. (Easy) Data Volume Penjualan Ethereum dari `https://www.coingecko.com/en/coins/ethereum/historical_data/usd?start_date=2020-01-01&end_date=2021-06-30#panel`
-
-   * Dari halaman tersebut carilah `Date`, dan `Volume`.
-   * Buat lah plot pergerakan volume perdagangan dari Ethereum. 
-
-2. (Medium) Data kurs US Dollar ke rupiah dari `https://www.exchange-rates.org/history/IDR/USD/T`
-
-    * Dari halaman tersebut carilah `harga harian`, dan `tanggal`
-    * Bualah plot pergerakan kurs USD 
-    
-3. (Hard) Data film yang rilis di tahun 2021 dari `https://www.imdb.com/search/title/?release_date=2021-01-01,2021-12-31`
-
-    * Dari Halaman tersebut carilah `judul` , `imdb rating` , `metascore`, dan `votes`
-    * Buatlah plot dari 7 film paling populer di tahun 2021.
-
-
-Happy learning! 
+**<p align="right">By: Theresia Londong | 06-Jan-2023</p>**
