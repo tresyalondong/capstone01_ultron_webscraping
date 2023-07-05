@@ -1,13 +1,14 @@
 # Web-Scrapping using Beautifulsoup
 
-Projek ini dikembangkan sebagai salah satu capstone project dari Algoritma Academy Data Analytics Specialization. Deliverables yang diharapkan dari projek ini adalah melakukan simple webscrapping untuk mendapatkan informasi. Kita juga akan memanfaatkan flask dashboard sederhana untuk menampilkan hasil scrap dan visualisasi kita.
+This project was developed as one of the capstone projects of the Algorithm Academy Data Analytics Specialization. The expected deliverables from this project are doing simple web scraping to get information. We'll also make use of a simple Flask dashboard to display our scrap results and visualizations.
 
 ## Objectives
-Secara singkat, tujuan dari project ini adalah melakukan web-scraping berdasarkan data film yang rilis di tahun 2021 dari `https://www.imdb.com/search/title/?release_date=2021-01-01,2021-12-31`
+In short, the goal of this project is to do web-scraping based on data on films released in 2021 from 
+https://www.imdb.com/search/title/?release_date=2021-01-01,2021-12-31
 
-- Dari laman web tersebut kita tarik data berupa `judul film` , `imdb rating` , `metascore`, dan `votes`
-- Selanjutnya kita buat plot dari 7 film paling populer di tahun 2021.
-
+- From the web page we retrieve information such as: `movie title`, `imdb rating`, `metascore`, and `votes`
+- Next, we will plot the 7 most popular films in 2021.
+  
 ## Dependencies
 
 - beautifulSoup4
@@ -20,11 +21,11 @@ Secara singkat, tujuan dari project ini adalah melakukan web-scraping berdasarka
 - Environment preparation (2 points)
 - Finding the right key to scrap the data  & Extracting the right information (5 points)
 - Creating data frame & Data wrangling (5 points)
-- Creating a tidy python notebook as a report. (2 points)
-- Implement it on flask dashboard (2 points)
+- Creating a tidy Python notebook as a report. (2 points)
+- Implement it on the Flask dashboard (2 points)
 
 ## Environment Preparation
-Cukup dengan menginstall requirements.txt dengan cara berikut
+Simply by installing the `requirements.txt` in the following way
 
 ```python
 pip install -r requirements.txt
@@ -32,13 +33,14 @@ pip install -r requirements.txt
 
 ## Data Scraping with `BeautifulSoup`
 
-Menemukan kunci utama untuk melakukan data scraping dgn fungsi sederhana berikut: 
+Find the primary key to perform data scraping with the following function:
+
 ```python
 table = soup.find(___)
 movie_list = table.find_all(___)
 ```
 
-Hasil dari data scraping kemudian disimpan dalam dataframe `df`
+The output of the data scraping process above is then stored in the `df` data frame
 
 ```python
 df = pd.DataFrame({'movie_title':title,
@@ -48,12 +50,12 @@ df = pd.DataFrame({'movie_title':title,
                     })
 ```
 
-untuk selanjutnya kita rapikan dan persiapkan sesuai dengan kebutuhan.
+for further cleansed and processed according to our business needs.
 
 ## Reporting
-Melakukan analisa sederhana berdasarkan hasil data scrapping & visualisasi, guna menemukan **Top 7 Most Popular Movies 2021**.
+Conducting a simple analysis based on the results of data scraping and visualization, in order to find **Top 7 Most Popular Movies 2021**.
 
 ## Visualisation using Flask 
-Implementasi code ke dalam file `app.py` dan menampilkannya dalam dashboard flask
+Implement the code in the `app.py` file and visualization using the Flask dashboard
 
 **<p align="right">By: Theresia Londong | 06-Jan-2023</p>**
