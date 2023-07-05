@@ -19,7 +19,7 @@ https://www.imdb.com/search/title/?release_date=2021-01-01,2021-12-31
 ## Rubics
 
 - Environment preparation (2 points)
-- Finding the right key to scrap the data  & Extracting the right information (5 points)
+- Finding the right key to scrape the data  & extract the right information (5 points)
 - Creating data frame & Data wrangling (5 points)
 - Creating a tidy Python notebook as a report. (2 points)
 - Implement it on the Flask dashboard (2 points)
@@ -55,7 +55,7 @@ for further cleansed and processed according to our business needs.
 ## Reporting
 Conducting a simple analysis based on the results of data scraping and visualization, in order to find **Top 7 Most Popular Movies 2021**.
 
-## Visualisation using Flask 
+## Visualization using Flask 
 Implement the code in the `app.py` file and visualization using the Flask dashboard
 
 **<p align="right">By: Theresia Londong | 06-Jan-2023</p>**
